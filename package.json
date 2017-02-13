@@ -1,57 +1,59 @@
 {
-    "name": "react-native-expanding-circle-transition",
-    "version": "0.0.1",
-    "private": true,
-    "keywords": [
-        "react-native",
-        "react-component",
-        "react-native-component",
-        "react",
-        "mobile",
-        "ios",
-        "ui",
-        "animation",
-        "transition",
-        "circle",
-        "expanding circle"
-    ],
-    "author": {
-        "name": "Alexandre Brillant",
-        "email": "abrillant23@gmail.com"
-    },
-    "homepage": "https://github.com/alexbrillant/react-native-expanding-circle-transition",
-    "bugs": {
-        "url": "https://github.com/alexbrillant/react-native-expanding-circle-transition/issues"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/alexbrillant/react-native-expanding-circle-transition"
-    },
-    "scripts": {
-        "start": "node node_modules/react-native/local-cli/cli.js start",
-        "test": "jest --coverage",
-        "lint": "standard --verbose | snazzy",
-        "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
-        "fixcode": "standard --fix"
-    },
-    "dependencies": {
-        "babel-eslint": "^7.1.1",
-        "jest-cli": "^18.1.0",
-        "react": "15.4.2",
-        "react-native": "0.41.2"
-    },
-    "devDependencies": {
-        "babel-jest": "18.0.0",
-        "babel-preset-react-native": "1.9.1",
-        "jest": "18.1.0",
-        "react-test-renderer": "15.4.2"
-    },
-    "jest": {
-        "preset": "react-native"
-    },
-    "config": {
-        "ghooks": {
-            "pre-commit": "if [ -d 'ignite-base' ]; then cd ignite-base; fi; npm run lint"
-        }
+  "name": "react-native-expanding-circle-transition",
+  "version": "0.0.1",
+  "private": false,
+  "main": "index.js",
+  "description": "Expanding circle transition using react-native Modal and Animated API",
+  "keywords": [
+    "react-native",
+    "react-component",
+    "react-native-component",
+    "react",
+    "mobile",
+    "ios",
+    "ui",
+    "animation",
+    "transition",
+    "circle",
+    "expanding circle"
+  ],
+  "author": {
+    "name": "Alexandre Brillant",
+    "email": "abrillant23@gmail.com"
+  },
+  "homepage": "https://github.com/alexbrillant/react-native-expanding-circle-transition",
+  "bugs": {
+    "url": "https://github.com/alexbrillant/react-native-expanding-circle-transition/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexbrillant/react-native-expanding-circle-transition"
+  },
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest --coverage",
+    "lint": "standard --verbose | snazzy",
+    "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
+    "fixcode": "standard --fix"
+  },
+  "dependencies": {
+    "babel-eslint": "^7.1.1",
+    "jest-cli": "^18.1.0",
+    "react": "15.4.2",
+    "react-native": "0.41.2"
+  },
+  "devDependencies": {
+    "babel-jest": "18.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "18.1.0",
+    "react-test-renderer": "15.4.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "if [ -d 'ignite-base' ]; then cd ignite-base; fi; npm run lint"
     }
+  }
 }
