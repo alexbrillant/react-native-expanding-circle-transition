@@ -51,7 +51,7 @@ export default class expandingcircle extends Component {
       case 4:
       return 'bottomRight'
       default:
-        'topLeft'
+      'topLeft'
     }
   }
 

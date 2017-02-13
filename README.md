@@ -52,7 +52,7 @@ export default class expandingcircle extends Component {
   }
 
   render () {
-    let { color, counter, expand } = this.state
+    let { color, expand } = this.state
     return (
       <View style={styles.container}>
         <CircleTransition
