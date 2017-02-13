@@ -1,4 +1,4 @@
-# Expanding Circle Transition 
+# react-native-expanding-circle-transition
 
 ## Preview
 
