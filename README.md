@@ -1,6 +1,10 @@
 # Expanding Circle Transition 
 
-Installation 
+## Preview
+
+![App preview](/animation.gif)
+
+## Installation 
 
   `npm install react-native-expanding-circle-transition --save`
 
