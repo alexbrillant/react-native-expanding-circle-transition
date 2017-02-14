@@ -31,7 +31,7 @@ import {
   TouchableWithoutFeedback
 } from 'react-native'
 
-import CircleTransition from './CircleTransition'
+import CircleTransition from 'react-antct-native-expanding-circle-transition'
 
 export default class expandingcircle extends Component {
 
