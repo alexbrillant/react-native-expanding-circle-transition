@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1487058823180" clover="3.2.0">
-  <project timestamp="1487058823180" name="All files">
+<coverage generated="1487059447239" clover="3.2.0">
+  <project timestamp="1487059447240" name="All files">
     <metrics statements="38" coveredstatements="30" conditionals="20" coveredconditionals="16" methods="9" coveredmethods="4" elements="67" coveredelements="50" complexity="0" loc="38" ncloc="38" packages="1" files="1" classes="1">
       <file name="CircleTransition.js" path="/Users/alexandre/Documents/react-native/react-native-expanding-circle-transition/CircleTransition.js">
         <metrics statements="38" coveredstatements="30" conditionals="20" coveredconditionals="16" methods="9" coveredmethods="4"/>

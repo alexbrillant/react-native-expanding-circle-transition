@@ -1,4 +1,8 @@
 # react-native-expanding-circle-transition
+[![Node version](https://img.shields.io/node/v/[react-native-expanding-circle-transition].svg?style=flat)](http://nodejs.org/download/)
+
+[![https://nodei.co/npm/YOUR-MODULE-NAME.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/react-native-expanding-circle-transition.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/react-native-expanding-circle-transition)
+
 
 
 ## Preview
