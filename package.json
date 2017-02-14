@@ -1,6 +1,6 @@
 {
     "name": "react-native-expanding-circle-transition",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "private": false,
     "main": "index.js",
     "description": "Expanding circle transition using react-native Modal and Animated API",
