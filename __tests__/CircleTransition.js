@@ -10,7 +10,10 @@ const positionTest = (position) => {
     <CircleTransition
       color={'orange'}
       position={position}
-      expand />
+      expand
+      customLeftMargin={100}
+      customTopMargin={100}
+    />
   ).toJSON()
   expect(tree).toMatchSnapshot()
 }
@@ -55,4 +58,8 @@ it('renders correctly when position is top', () => {
 
 it('renders correctly when position is bottom', () => {
   positionTest('bottom')
+})
+
+it('renders correctly when position is custom', () => {
+  positionTest('custom')
 })

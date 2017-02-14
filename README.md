@@ -5,11 +5,11 @@
 
 ![App preview](/animation.gif)
 
-## Installation 
+## Installation
 
   `npm install react-native-expanding-circle-transition --save`
 
-## Props 
+## Props
 
 | Props    | type   | description                                                                                             | default                          |
 |----------|--------|---------------------------------------------------------------------------------------------------------|----------------------------------|
@@ -17,11 +17,13 @@
 | size     | number | size of the circle view when fully expanded                                                             | the height of the screen times 3 |
 | duration | number | duration of the animation                                                                               | 800                              |
 | expand   | bool   | expand if true, reduce false                                                                            | true                             |
-| position | enum   | position of the circle :  ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'center', 'left', 'right', 'top', 'bottom']  | 'topLeft'                        |
+| position | enum   | position of the circle :  ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'center', 'left', 'right', 'top', 'bottom', 'custom']  | 'topLeft'                        |
+| customLeftMargin | number   |  custom position's left margin from the center of the circle positioned at topLeft |  0                       |
+| customTopMargin | number   |  custom position's top margin from the center of the circle positioned at topLeft |  0                       |
 
 ## Usage exemple
 
-To trigger the animations, you need to update the props since the animation is tiggered on the componentWillReceiveProps event. 
+To trigger the animations, you need to update the props since the animation is tiggered on the componentWillReceiveProps event.
 ```javascript
 import React, {
     Component

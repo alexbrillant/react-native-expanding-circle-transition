@@ -98,6 +98,31 @@ exports[`test renders correctly when position is center 1`] = `
 </Modal>
 `;
 
+exports[`test renders correctly when position is custom 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={false}>
+  <View
+    style={
+      Object {
+        "backgroundColor": "orange",
+        "borderRadius": 2001,
+        "height": 4002,
+        "marginHorizontal": -1901,
+        "marginVertical": -1901,
+        "transform": Array [
+          Object {
+            "scale": 0,
+          },
+        ],
+        "width": 4002,
+      }
+    } />
+</Modal>
+`;
+
 exports[`test renders correctly when position is left 1`] = `
 <Modal
   animationType="none"

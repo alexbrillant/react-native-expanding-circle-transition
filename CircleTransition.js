@@ -37,7 +37,7 @@ class CircleTransition extends Component {
   }
 
   getMarginHorizontal (position) {
-    const { size } = this.props
+    const { size, customLeftMargin } = this.props
     const halfSize = size / 2
     const halfWidth = width / 2
     let marginHorizontalTopLeft = -halfSize
@@ -50,13 +50,15 @@ class CircleTransition extends Component {
       case 'bottomRight':
       case 'right':
         return marginHorizontalTopLeft + width
+      case 'custom':
+        return marginHorizontalTopLeft + customLeftMargin
       default:
         return marginHorizontalTopLeft
     }
   }
 
   getMarginVertical (position) {
-    const { size } = this.props
+    const { size, customTopMargin } = this.props
     const halfSize = size / 2
     const halfHeight = height / 2
     let marginVerticalTopLeft = -halfSize
@@ -69,6 +71,8 @@ class CircleTransition extends Component {
       case 'bottomRight':
       case 'bottom':
         return marginVerticalTopLeft + height
+      case 'custom':
+        return marginVerticalTopLeft + customTopMargin
       default:
         return marginVerticalTopLeft
     }
@@ -113,8 +117,11 @@ CircleTransition.propTypes = {
     'left',
     'right',
     'top',
-    'bottom'
+    'bottom',
+    'custom'
   ]),
+  customLeftMargin: React.PropTypes.number,
+  customTopMargin: React.PropTypes.number,
   expand: React.PropTypes.bool
 }
 
@@ -123,7 +130,9 @@ CircleTransition.defaultProps = {
   size: height * 3,
   duration: 800,
   position: 'topLeft',
-  expand: true
+  expand: true,
+  customLeftMargin: 0,
+  customTopMargin: 0
 }
 
 export default CircleTransition
