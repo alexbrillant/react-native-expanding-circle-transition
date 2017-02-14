@@ -23,6 +23,8 @@
 
 To trigger the animations, you need to update the props since the animation is tiggered on the componentWillReceiveProps event. 
 ```javascript
+
+``````
 import React, { Component } from 'react'
 import {
   StyleSheet,
@@ -57,18 +59,18 @@ export default class expandingcircle extends Component {
       <View style={styles.container}>
         <CircleTransition
           expand={expand}
-          position={'center'} 
+          position={'center'}
           color={color}
-          />
-          <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress}>
+        />
+        <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress}>
             <View>
               <Text style={styles.title}>CircleTransition</Text>
               <Text style={styles.position}>{position}</Text>
             </View>
-          </TouchableWithoutFeedback>
-        </View>
-      )
-    }
+        </TouchableWithoutFeedback>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -96,4 +98,3 @@ const styles = StyleSheet.create({
       flex: 1
     }
 })
-``````
