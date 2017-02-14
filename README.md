@@ -24,7 +24,7 @@
 To trigger the animations, you need to update the props since the animation is tiggered on the componentWillReceiveProps event. 
 ```javascript
 
-``````
+```javascript
 import React, { Component } from 'react'
 import {
   StyleSheet,
@@ -98,3 +98,4 @@ const styles = StyleSheet.create({
       flex: 1
     }
 })
+``````
