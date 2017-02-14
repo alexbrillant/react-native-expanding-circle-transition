@@ -23,23 +23,28 @@
 
 To trigger the animations, you need to update the props since the animation is tiggered on the componentWillReceiveProps event. 
 ```javascript
-import React, { Component } from 'react'
+import React, {
+    Component
+} from 'react'
+
 import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableWithoutFeedback
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    Dimensions,
+    TouchableWithoutFeedback
 } from 'react-native'
 
 import CircleTransition from 'react-native-expanding-circle-transition'
 
-export default class expandingcircle extends Component {
-
+export default class Exemples extends Component {
   constructor (props) {
     super(props)
     this.state = {
       color: 'orange',
-      expand: true
+      expand: true,
+      position: 'center'
     }
     this.handlePress = this.handlePress.bind(this)
   }
@@ -47,27 +52,24 @@ export default class expandingcircle extends Component {
   handlePress () {
     this.setState({
       color: 'orange',
-      expand: true
+      expand: true,
+      position: 'center'
     })
   }
 
   render () {
-    let { color, expand } = this.state
+    let { color, expand, position } = this.state
     return (
       <View style={styles.container}>
-        <CircleTransition
-          expand={expand}
-          position={'center'}
-          color={color}
-        />
-        <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress}>
+          <CircleTransition color={color} expand={expand} position={position} />
+          <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress}>
             <View>
               <Text style={styles.title}>CircleTransition</Text>
               <Text style={styles.position}>{position}</Text>
             </View>
-        </TouchableWithoutFeedback>
-      </View>
-    )
+          </TouchableWithoutFeedback>
+        </View>
+      )
   }
 }
 
