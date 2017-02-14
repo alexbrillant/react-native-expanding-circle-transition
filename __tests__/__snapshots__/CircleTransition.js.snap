@@ -1,3 +1,28 @@
+exports[`test renders correctly when position is bottom 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={false}>
+  <View
+    style={
+      Object {
+        "backgroundColor": "orange",
+        "borderRadius": 2001,
+        "height": 4002,
+        "marginHorizontal": -1626,
+        "marginVertical": -667,
+        "transform": Array [
+          Object {
+            "scale": 0,
+          },
+        ],
+        "width": 4002,
+      }
+    } />
+</Modal>
+`;
+
 exports[`test renders correctly when position is bottomLeft 1`] = `
 <Modal
   animationType="none"
@@ -62,6 +87,81 @@ exports[`test renders correctly when position is center 1`] = `
         "height": 4002,
         "marginHorizontal": -1626,
         "marginVertical": -1334,
+        "transform": Array [
+          Object {
+            "scale": 0,
+          },
+        ],
+        "width": 4002,
+      }
+    } />
+</Modal>
+`;
+
+exports[`test renders correctly when position is left 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={false}>
+  <View
+    style={
+      Object {
+        "backgroundColor": "orange",
+        "borderRadius": 2001,
+        "height": 4002,
+        "marginHorizontal": -2001,
+        "marginVertical": -1334,
+        "transform": Array [
+          Object {
+            "scale": 0,
+          },
+        ],
+        "width": 4002,
+      }
+    } />
+</Modal>
+`;
+
+exports[`test renders correctly when position is right 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={false}>
+  <View
+    style={
+      Object {
+        "backgroundColor": "orange",
+        "borderRadius": 2001,
+        "height": 4002,
+        "marginHorizontal": -1251,
+        "marginVertical": -1334,
+        "transform": Array [
+          Object {
+            "scale": 0,
+          },
+        ],
+        "width": 4002,
+      }
+    } />
+</Modal>
+`;
+
+exports[`test renders correctly when position is top 1`] = `
+<Modal
+  animationType="none"
+  hardwareAccelerated={false}
+  transparent={true}
+  visible={false}>
+  <View
+    style={
+      Object {
+        "backgroundColor": "orange",
+        "borderRadius": 2001,
+        "height": 4002,
+        "marginHorizontal": -1626,
+        "marginVertical": -2001,
         "transform": Array [
           Object {
             "scale": 0,

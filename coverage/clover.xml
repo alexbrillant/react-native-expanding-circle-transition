@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1487049614948" clover="3.2.0">
-  <project timestamp="1487049614948" name="All files">
-    <metrics statements="36" coveredstatements="28" conditionals="12" coveredconditionals="8" methods="9" coveredmethods="4" elements="57" coveredelements="40" complexity="0" loc="36" ncloc="36" packages="1" files="1" classes="1">
+<coverage generated="1487055550359" clover="3.2.0">
+  <project timestamp="1487055550359" name="All files">
+    <metrics statements="36" coveredstatements="28" conditionals="18" coveredconditionals="14" methods="9" coveredmethods="4" elements="63" coveredelements="46" complexity="0" loc="36" ncloc="36" packages="1" files="1" classes="1">
       <file name="CircleTransition.js" path="/Users/alexandre/Documents/react-native/react-native-expanding-circle-transition/CircleTransition.js">
-        <metrics statements="36" coveredstatements="28" conditionals="12" coveredconditionals="8" methods="9" coveredmethods="4"/>
+        <metrics statements="36" coveredstatements="28" conditionals="18" coveredconditionals="14" methods="9" coveredmethods="4"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="8" count="6" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
-        <line num="10" count="6" type="stmt"/>
-        <line num="11" count="6" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="9" count="10" type="stmt"/>
+        <line num="10" count="10" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
@@ -17,29 +17,29 @@
         <line num="27" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="40" count="6" type="stmt"/>
-        <line num="41" count="6" type="stmt"/>
-        <line num="42" count="6" type="stmt"/>
-        <line num="43" count="6" type="stmt"/>
-        <line num="44" count="6" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="51" count="3" type="stmt"/>
-        <line num="56" count="6" type="stmt"/>
-        <line num="57" count="6" type="stmt"/>
-        <line num="58" count="6" type="stmt"/>
-        <line num="59" count="6" type="stmt"/>
-        <line num="60" count="6" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
+        <line num="40" count="10" type="stmt"/>
+        <line num="41" count="10" type="stmt"/>
+        <line num="42" count="10" type="stmt"/>
+        <line num="43" count="10" type="stmt"/>
+        <line num="44" count="10" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
+        <line num="54" count="4" type="stmt"/>
+        <line num="59" count="10" type="stmt"/>
+        <line num="60" count="10" type="stmt"/>
+        <line num="61" count="10" type="stmt"/>
+        <line num="62" count="10" type="stmt"/>
+        <line num="63" count="10" type="stmt"/>
         <line num="67" count="3" type="stmt"/>
-        <line num="72" count="6" type="stmt"/>
-        <line num="73" count="6" type="stmt"/>
-        <line num="74" count="6" type="stmt"/>
-        <line num="75" count="6" type="stmt"/>
-        <line num="76" count="6" type="stmt"/>
-        <line num="97" count="1" type="stmt"/>
-        <line num="111" count="1" type="stmt"/>
+        <line num="71" count="3" type="stmt"/>
+        <line num="73" count="4" type="stmt"/>
+        <line num="78" count="10" type="stmt"/>
+        <line num="79" count="10" type="stmt"/>
+        <line num="80" count="10" type="stmt"/>
+        <line num="81" count="10" type="stmt"/>
+        <line num="82" count="10" type="stmt"/>
+        <line num="103" count="1" type="stmt"/>
+        <line num="121" count="1" type="stmt"/>
       </file>
     </metrics>
   </project>

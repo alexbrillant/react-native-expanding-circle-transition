@@ -40,3 +40,19 @@ it('renders correctly when position is bottomLeft', () => {
 it('renders correctly when position is bottomRight', () => {
   positionTest('bottomRight')
 })
+
+it('renders correctly when position is left', () => {
+  positionTest('left')
+})
+
+it('renders correctly when position is right', () => {
+  positionTest('right')
+})
+
+it('renders correctly when position is top', () => {
+  positionTest('top')
+})
+
+it('renders correctly when position is bottom', () => {
+  positionTest('bottom')
+})

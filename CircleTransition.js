@@ -43,9 +43,12 @@ class CircleTransition extends Component {
     let marginHorizontalTopLeft = -halfSize
     switch (position) {
       case 'center':
+      case 'top':
+      case 'bottom':
         return marginHorizontalTopLeft + halfWidth
       case 'topRight':
       case 'bottomRight':
+      case 'right':
         return marginHorizontalTopLeft + width
       default:
         return marginHorizontalTopLeft
@@ -59,9 +62,12 @@ class CircleTransition extends Component {
     let marginVerticalTopLeft = -halfSize
     switch (position) {
       case 'center':
+      case 'left':
+      case 'right':
         return marginVerticalTopLeft + halfHeight
       case 'bottomLeft':
       case 'bottomRight':
+      case 'bottom':
         return marginVerticalTopLeft + height
       default:
         return marginVerticalTopLeft
@@ -103,7 +109,11 @@ CircleTransition.propTypes = {
     'topRight',
     'bottomLeft',
     'bottomRight',
-    'center'
+    'center',
+    'left',
+    'right',
+    'top',
+    'bottom'
   ]),
   expand: React.PropTypes.bool
 }
