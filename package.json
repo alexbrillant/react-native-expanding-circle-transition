@@ -31,7 +31,6 @@
         "url": "git://github.com/alexbrillant/react-native-expanding-circle-transition"
     },
     "scripts": {
-        "start": "node node_modules/react-native/local-cli/cli.js start",
         "test": "jest --coverage",
         "lint": "standard --verbose | snazzy",
         "lintdiff": "git diff --name-only --cached --relative | grep '\\.js$' | xargs standard | snazzy",
