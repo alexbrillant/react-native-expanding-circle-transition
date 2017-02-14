@@ -23,8 +23,6 @@
 
 To trigger the animations, you need to update the props since the animation is tiggered on the componentWillReceiveProps event. 
 ```javascript
-
-```javascript
 import React, { Component } from 'react'
 import {
   StyleSheet,
@@ -33,7 +31,7 @@ import {
   TouchableWithoutFeedback
 } from 'react-native'
 
-import CircleTransition from 'react-antct-native-expanding-circle-transition'
+import CircleTransition from 'react-native-expanding-circle-transition'
 
 export default class expandingcircle extends Component {
 
