@@ -2,13 +2,17 @@ import React, { Component } from 'react'
 import { Modal, Dimensions, Animated } from 'react-native'
 const { width, height } = Dimensions.get('window')
 
+const EXPAND = 1
+const SHRINK = 0
+
 class CircleTransition extends Component {
 
   constructor (props) {
     super(props)
-    this.state = {}
-    this.state.modalVisible = false
-    this.state.scale = new Animated.Value(0)
+    this.state = {
+      modalVisible: false,
+      scale: new Animated.Value(SHRINK)
+    }
   }
 
   start () {
@@ -19,7 +23,7 @@ class CircleTransition extends Component {
   }
 
   animate (expand) {
-    let toValue = expand ? 1 : 0
+    let toValue = expand ? EXPAND : SHRINK
     Animated.timing(this.state.scale, {
       toValue: toValue,
       duration: this.props.duration
@@ -30,7 +34,7 @@ class CircleTransition extends Component {
   }
 
   setModalVisible (visible, expand, callback) {
-    let fromValue = expand ? 0 : 1
+    let fromValue = expand ? SHRINK : EXPAND
     this.setState({
       modalVisible: visible,
       scale: new Animated.Value(fromValue)
