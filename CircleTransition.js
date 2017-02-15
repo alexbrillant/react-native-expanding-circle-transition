@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 import { Modal, Dimensions, Animated } from 'react-native'
 const { width, height } = Dimensions.get('window')
 
@@ -110,11 +110,11 @@ class CircleTransition extends Component {
 }
 
 CircleTransition.propTypes = {
-  callback: React.PropTypes.func.isRequired,
-  color: React.PropTypes.string,
-  size: React.PropTypes.number,
-  duration: React.PropTypes.number,
-  position: React.PropTypes.oneOf([
+  callback: PropTypes.func.isRequired,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  duration: PropTypes.number,
+  position: PropTypes.oneOf([
     'topLeft',
     'topRight',
     'bottomLeft',
@@ -126,9 +126,9 @@ CircleTransition.propTypes = {
     'bottom',
     'custom'
   ]),
-  customLeftMargin: React.PropTypes.number,
-  customTopMargin: React.PropTypes.number,
-  expand: React.PropTypes.bool
+  customLeftMargin: PropTypes.number,
+  customTopMargin: PropTypes.number,
+  expand: PropTypes.bool
 }
 
 CircleTransition.defaultProps = {
