@@ -27,7 +27,7 @@
 
 ## How to use
 
-To trigger the animations, you need to use a ref to call the start function of this component.
+To trigger the animation, you need to use a ref to call the start function of this component.
 
 ## Usage exemple
 ```javascript
