@@ -14,8 +14,9 @@
 
 ## Props
 
-| Props    | type   | description                                                                                             | default                          |
+| Props    | type   | description                                                                                             | required or default                          |
 |----------|--------|---------------------------------------------------------------------------------------------------------|----------------------------------|
+| callback | func   | callback to change the scene before the circle is hidden | required |
 | color    | string | color of the circle view                                                                                | 'orange'                         |
 | size     | number | size of the circle view when fully expanded                                                             | the height of the screen times 3 |
 | duration | number | duration of the animation                                                                               | 800                              |
@@ -24,9 +25,11 @@
 | customLeftMargin | number   |  custom position's left margin from the center of the circle positioned at topLeft |  0                       |
 | customTopMargin | number   |  custom position's top margin from the center of the circle positioned at topLeft |  0                       |
 
-## Usage exemple
+## How to use
 
-To trigger the animations, you need to update the props since the animation is tiggered on the componentWillReceiveProps event.
+To trigger the animations, you need to use a ref to the component to call the start function.
+
+## Usage exemple
 ```javascript
 import React, {
     Component
@@ -37,11 +40,10 @@ import {
     StyleSheet,
     Text,
     View,
-    Dimensions,
     TouchableWithoutFeedback
 } from 'react-native'
 
-import CircleTransition from 'react-native-expanding-circle-transition'
+import CircleTransition from './CircleTransition'
 
 export default class Exemples extends Component {
   constructor (props) {
@@ -49,58 +51,119 @@ export default class Exemples extends Component {
     this.state = {
       color: 'orange',
       expand: true,
-      position: 'center'
+      position: 'center',
+      counter: 0,
+      callback: '',
+      customLeftMargin: 0,
+      customTopMargin: 200
     }
     this.handlePress = this.handlePress.bind(this)
   }
 
+  getPosition (counter) {
+    switch(counter) {
+      case 0:
+        return 'center'
+      case 1:
+        return 'topLeft'
+      case 2:
+        return 'topRight'
+      case 3:
+        return 'bottomLeft'
+      case 4:
+        return 'bottomRight'
+      case 5:
+        return 'left'
+      case 6:
+        return 'right'
+      case 7:
+        return 'top'
+      case 8:
+        return 'bottom'
+      case 9:
+        return 'custom'
+    }
+  }
+
+  getNextCounter (counter) {
+    if (counter === 9) {
+      return 0
+    }
+    return counter + 1
+  }
+
   handlePress () {
+    let { counter } = this.state
+    const position = this.getPosition(counter)
+    counter = this.getNextCounter(counter)
     this.setState({
       color: 'orange',
       expand: true,
-      position: 'center'
+      position: position,
+      counter: counter,
+      callback: ''
     })
+
+    // TO START THE ANIMATION !
+    this.circleTransition.start()
   }
 
   render () {
-    let { color, expand, position } = this.state
+    let {
+      color,
+      expand,
+      position,
+      customLeftMargin,
+      callback,
+      customTopMargin
+    } = this.state
     return (
       <View style={styles.container}>
-          <CircleTransition color={color} expand={expand} position={position} />
-          <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress}>
-            <View>
-              <Text style={styles.title}>CircleTransition</Text>
-              <Text style={styles.position}>{position}</Text>
-            </View>
-          </TouchableWithoutFeedback>
-        </View>
-      )
+        <CircleTransition
+          ref={(circle) => { this.circleTransition = circle }}
+          color={color}
+          expand={expand}
+          callback={() => {
+            this.setState({
+              callback: 'callback has been called'
+            })
+          }}
+          position={position}
+          customTopMargin={customTopMargin}
+          customLeftMargin={customLeftMargin}
+        />
+        <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress}>
+          <View>
+            <Text style={styles.position}>CircleTransition {position} {callback}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      </View>
+    )
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF'
-    },
-    title: {
-      fontSize: 30,
-      fontWeight: '500',
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5
-    },
-    position: {
-      fontSize: 20,
-      fontWeight: '400',
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 5
-    },
-    touchable: {
-      flex: 1
-    }
+  container: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF'
+  },
+  position: {
+    flex: 1,
+    top: 320,
+    fontSize: 25,
+    alignSelf: 'center',
+    fontWeight: '400',
+    textAlign: 'center',
+    color: '#333333'
+  },
+  touchable: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 })
 ``````

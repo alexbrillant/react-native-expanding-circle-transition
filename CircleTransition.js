@@ -11,8 +11,8 @@ class CircleTransition extends Component {
     this.state.scale = new Animated.Value(0)
   }
 
-  componentWillReceiveProps (nextProps) {
-    const { expand } = nextProps
+  start () {
+    const { expand } = this.props
     this.setModalVisible(true, expand, () => {
       this.animate(expand)
     })
@@ -24,7 +24,8 @@ class CircleTransition extends Component {
       toValue: toValue,
       duration: this.props.duration
     }).start(() => {
-      this.setModalVisible(false)
+      this.props.callback()
+      this.setModalVisible(false, expand)
     })
   }
 
@@ -105,6 +106,7 @@ class CircleTransition extends Component {
 }
 
 CircleTransition.propTypes = {
+  callback: React.PropTypes.func.isRequired,
   color: React.PropTypes.string,
   size: React.PropTypes.number,
   duration: React.PropTypes.number,

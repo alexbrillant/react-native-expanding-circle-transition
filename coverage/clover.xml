@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1487059447239" clover="3.2.0">
-  <project timestamp="1487059447240" name="All files">
-    <metrics statements="38" coveredstatements="30" conditionals="20" coveredconditionals="16" methods="9" coveredmethods="4" elements="67" coveredelements="50" complexity="0" loc="38" ncloc="38" packages="1" files="1" classes="1">
+<coverage generated="1487155354181" clover="3.2.0">
+  <project timestamp="1487155354181" name="All files">
+    <metrics statements="39" coveredstatements="30" conditionals="20" coveredconditionals="16" methods="9" coveredmethods="4" elements="68" coveredelements="50" complexity="0" loc="39" ncloc="39" packages="1" files="1" classes="1">
       <file name="CircleTransition.js" path="/Users/alexandre/Documents/react-native/react-native-expanding-circle-transition/CircleTransition.js">
-        <metrics statements="38" coveredstatements="30" conditionals="20" coveredconditionals="16" methods="9" coveredmethods="4"/>
+        <metrics statements="39" coveredstatements="30" conditionals="20" coveredconditionals="16" methods="9" coveredmethods="4"/>
         <line num="3" count="1" type="stmt"/>
         <line num="8" count="11" type="stmt"/>
         <line num="9" count="11" type="stmt"/>
@@ -15,33 +15,34 @@
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="27" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="40" count="11" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
         <line num="41" count="11" type="stmt"/>
         <line num="42" count="11" type="stmt"/>
         <line num="43" count="11" type="stmt"/>
         <line num="44" count="11" type="stmt"/>
-        <line num="48" count="3" type="stmt"/>
-        <line num="52" count="3" type="stmt"/>
-        <line num="54" count="1" type="stmt"/>
-        <line num="56" count="4" type="stmt"/>
-        <line num="61" count="11" type="stmt"/>
+        <line num="45" count="11" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="53" count="3" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
         <line num="62" count="11" type="stmt"/>
         <line num="63" count="11" type="stmt"/>
         <line num="64" count="11" type="stmt"/>
         <line num="65" count="11" type="stmt"/>
-        <line num="69" count="3" type="stmt"/>
-        <line num="73" count="3" type="stmt"/>
-        <line num="75" count="1" type="stmt"/>
-        <line num="77" count="4" type="stmt"/>
-        <line num="82" count="11" type="stmt"/>
+        <line num="66" count="11" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
+        <line num="74" count="3" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="78" count="4" type="stmt"/>
         <line num="83" count="11" type="stmt"/>
         <line num="84" count="11" type="stmt"/>
         <line num="85" count="11" type="stmt"/>
         <line num="86" count="11" type="stmt"/>
-        <line num="107" count="1" type="stmt"/>
-        <line num="128" count="1" type="stmt"/>
+        <line num="87" count="11" type="stmt"/>
+        <line num="108" count="1" type="stmt"/>
+        <line num="130" count="1" type="stmt"/>
       </file>
     </metrics>
   </project>

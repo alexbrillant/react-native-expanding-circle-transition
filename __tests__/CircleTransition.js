@@ -11,6 +11,9 @@ const positionTest = (position) => {
       color={'orange'}
       position={position}
       expand
+      callback={() => {
+        console.log('transition done callback')
+      }}
       customLeftMargin={100}
       customTopMargin={100}
     />
@@ -20,7 +23,9 @@ const positionTest = (position) => {
 
 it('renders correctly with default props', () => {
   const tree = renderer.create(
-    <CircleTransition />
+    <CircleTransition callback={() => {
+      console.log('transition done callback')
+    }} />
   )
 })
 
