@@ -26,7 +26,7 @@
 
 ## How to use
 
-To trigger the animation, you need to use a ref to call the start function of this component. Pass a callback to the start function to change the scene before the circle is hidden(check out usage exemple handle press function). 
+To trigger the animation, you need to use a ref to call the start function of this component. Pass a callback to the start function to change the scene before the circle is hidden(check out usage exemple componentDidMount function). 
 
 ## Usage exemple
 ```javascript
