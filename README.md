@@ -73,24 +73,23 @@ export default class Exemples extends Component {
       <View style={[styles.container, {
         backgroundColor: oldColor
       }
-    ]}>
-    <TouchableWithoutFeedback style={styles.touchable}>
-      <View>
-        <Text style={styles.position}>
-          CircleTransition
-        </Text>
-      </View>
-    </TouchableWithoutFeedback>
-    <CircleTransition
-      ref={(circle) => {
-        this.circleTransition = circle
-      }}
-      color={color}
-      expand={true}
-      position={'center'} />
-    </View>
-  )
-}
+      ]}>
+        <TouchableWithoutFeedback style={styles.touchable}>
+           <View>
+             <Text style={styles.position}>
+                CircleTransition
+            </Text>
+            </View>
+        </TouchableWithoutFeedback>
+        <CircleTransition
+            ref={(circle) => {
+                this.circleTransition = circle
+            }}
+            color={color}
+            expand={true}
+            position={'center'} />
+      </View>)
+  }
 }
 
 const styles = StyleSheet.create({
