@@ -26,25 +26,24 @@
 
 ## How to use
 
-To trigger the animation, you need to use a ref to call the start function of this component. Pass a callback to the start function to change the scene before the circle is hidden(check out usage exemple componentDidMount function). 
+To trigger the animation, you need to use a ref to call the start function of this component. 
+Pass a callback to the start function to change the scene before the circle is hidden(check out usage exemple handlePress function). 
 
 ## Usage exemple
 ```javascript
 import React, {
-    Component
+  Component
 } from 'react'
 
 import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    Easing,
-    View,
-    Animated,
-    TouchableWithoutFeedback
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TouchableWithoutFeedback
 } from 'react-native'
 
-import CircleTransition from './CircleTransition'
+import CircleTransition from 'react-native-expanding-circle-transition'
 
 export default class Exemples extends Component {
   constructor (props) {
@@ -53,9 +52,10 @@ export default class Exemples extends Component {
       oldColor: '#E3E4E5',
       color: 'orange'
     }
+    this.handlePress = this.handlePress.bind(this)
   }
 
-  componentDidMount () {
+  handlePress() {
     this.circleTransition.start(() => {
       this.setState({
         oldColor: this.state.color
@@ -64,32 +64,28 @@ export default class Exemples extends Component {
   }
 
   render () {
-    let {
-      color,
-      oldColor
-    } = this.state
+    let { color, oldColor } = this.state
 
     return (
       <View style={[styles.container, {
-        backgroundColor: oldColor
-      }]}>
-        <TouchableWithoutFeedback style={styles.touchable}>
-           <View>
-             <Text style={styles.position}>
-                CircleTransition
-            </Text>
-            </View>
-        </TouchableWithoutFeedback>
-        <CircleTransition
-            ref={(circle) => {
-                this.circleTransition = circle
-            }}
-            color={color}
-            expand={true}
-            position={'center'} />
-      </View>
-    )
-  }
+          backgroundColor: oldColor
+        }]}>
+      <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress} >
+        <View>
+          <Text style={styles.position}>
+            Press to start circle transition animation
+          </Text>
+        </View>
+      </TouchableWithoutFeedback>
+      <CircleTransition
+        ref={(circle) => { this.circleTransition = circle }}
+        color={color}
+        expand
+        position={'center'}
+      />
+    </View>
+  )
+}
 }
 
 const styles = StyleSheet.create({
