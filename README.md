@@ -51,18 +51,11 @@ export default class Exemples extends Component {
     super(props)
     this.state = {
       oldColor: '#E3E4E5',
-      color: '#E3E4E5'
+      color: 'orange'
     }
-
-    this.handlePress = this.handlePress.bind(this)
   }
 
-  handlePress () {
-    this.setState({
-      oldColor: this.state.color,
-      color: 'orange'
-    })
-
+  componentDidMount () {
     this.circleTransition.start(() => {
       this.setState({
         oldColor: this.state.color
@@ -79,25 +72,25 @@ export default class Exemples extends Component {
     return (
       <View style={[styles.container, {
         backgroundColor: oldColor
-        }
-      ]}>
-        <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress}>
-          <View>
-            <Text style={styles.position}>
-              CircleTransition
-            </Text>
-          </View>
-        </TouchableWithoutFeedback>
-        <CircleTransition
-          ref={(circle) => {
-            this.circleTransition = circle
-          }}
-          color={color}
-          expand={true}
-          position={'center'} />
+      }
+    ]}>
+    <TouchableWithoutFeedback style={styles.touchable}>
+      <View>
+        <Text style={styles.position}>
+          CircleTransition
+        </Text>
       </View>
-    )
-  }
+    </TouchableWithoutFeedback>
+    <CircleTransition
+      ref={(circle) => {
+        this.circleTransition = circle
+      }}
+      color={color}
+      expand={true}
+      position={'center'} />
+    </View>
+  )
+}
 }
 
 const styles = StyleSheet.create({
@@ -123,5 +116,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   }
-})
-``````
+})``````
