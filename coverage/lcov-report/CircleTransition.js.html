@@ -183,8 +183,14 @@
 138
 139
 140
-141</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+141
+142
+143
+144</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -192,8 +198,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -311,7 +318,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -323,39 +329,43 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component } from 'react'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { Component, PropTypes } from 'react'
 import { Modal, Dimensions, Animated } from 'react-native'
 const { width, height } = Dimensions.get('window')
+&nbsp;
+const EXPAND = 1
+const SHRINK = 0
 &nbsp;
 class CircleTransition extends Component {
 &nbsp;
   constructor (props) {
     super(props)
-    this.state = {}
-    this.state.modalVisible = false
-    this.state.scale = new Animated.Value(0)
+    this.state = {
+      modalVisible: false,
+      scale: new Animated.Value(SHRINK)
+    }
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  st</span>art () {
+<span class="fstat-no" title="function not covered" >  st</span>art (callback) {
     const { expand } = <span class="cstat-no" title="statement not covered" >this.props</span>
 <span class="cstat-no" title="statement not covered" >    this.setModalVisible(true, expand, <span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      this.animate(expand)</span>
+<span class="cstat-no" title="statement not covered" >      this.animate(expand, callback)</span>
     })
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  an</span>imate (expand) {
-    let toValue = <span class="cstat-no" title="statement not covered" >expand ? 1 : 0</span>
+<span class="fstat-no" title="function not covered" >  an</span>imate (expand, callback) {
+    let toValue = <span class="cstat-no" title="statement not covered" >expand ? EXPAND : SHRINK</span>
 <span class="cstat-no" title="statement not covered" >    Animated.timing(this.state.scale, {</span>
       toValue: toValue,
       duration: this.props.duration
     }).start(<span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >      this.props.callback()</span>
+<span class="cstat-no" title="statement not covered" >      callback()</span>
 <span class="cstat-no" title="statement not covered" >      this.setModalVisible(false, expand)</span>
     })
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  se</span>tModalVisible (visible, expand, callback) {
-    let fromValue = <span class="cstat-no" title="statement not covered" >expand ? 0 : 1</span>
+    let fromValue = <span class="cstat-no" title="statement not covered" >expand ? SHRINK : EXPAND</span>
 <span class="cstat-no" title="statement not covered" >    this.setState({</span>
       modalVisible: visible,
       scale: new Animated.Value(fromValue)
@@ -431,11 +441,10 @@ class CircleTransition extends Component {
 }
 &nbsp;
 CircleTransition.propTypes = {
-  callback: React.PropTypes.func.isRequired,
-  color: React.PropTypes.string,
-  size: React.PropTypes.number,
-  duration: React.PropTypes.number,
-  position: React.PropTypes.oneOf([
+  color: PropTypes.string,
+  size: PropTypes.number,
+  duration: PropTypes.number,
+  position: PropTypes.oneOf([
     'topLeft',
     'topRight',
     'bottomLeft',
@@ -447,9 +456,9 @@ CircleTransition.propTypes = {
     'bottom',
     'custom'
   ]),
-  customLeftMargin: React.PropTypes.number,
-  customTopMargin: React.PropTypes.number,
-  expand: React.PropTypes.bool
+  customLeftMargin: PropTypes.number,
+  customTopMargin: PropTypes.number,
+  expand: PropTypes.bool
 }
 &nbsp;
 CircleTransition.defaultProps = {
@@ -469,7 +478,7 @@ export default CircleTransition
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Feb 15 2017 05:42:34 GMT-0500 (EST)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Feb 16 2017 03:07:38 GMT-0500 (EST)
 </div>
 </div>
 <script src="prettify.js"></script>

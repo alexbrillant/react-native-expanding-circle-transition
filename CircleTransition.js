@@ -15,20 +15,20 @@ class CircleTransition extends Component {
     }
   }
 
-  start () {
+  start (callback) {
     const { expand } = this.props
     this.setModalVisible(true, expand, () => {
-      this.animate(expand)
+      this.animate(expand, callback)
     })
   }
 
-  animate (expand) {
+  animate (expand, callback) {
     let toValue = expand ? EXPAND : SHRINK
     Animated.timing(this.state.scale, {
       toValue: toValue,
       duration: this.props.duration
     }).start(() => {
-      this.props.callback()
+      callback()
       this.setModalVisible(false, expand)
     })
   }
@@ -110,7 +110,6 @@ class CircleTransition extends Component {
 }
 
 CircleTransition.propTypes = {
-  callback: PropTypes.func.isRequired,
   color: PropTypes.string,
   size: PropTypes.number,
   duration: PropTypes.number,
