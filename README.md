@@ -72,8 +72,7 @@ export default class Exemples extends Component {
     return (
       <View style={[styles.container, {
         backgroundColor: oldColor
-      }
-      ]}>
+      }]}>
         <TouchableWithoutFeedback style={styles.touchable}>
            <View>
              <Text style={styles.position}>
@@ -88,7 +87,8 @@ export default class Exemples extends Component {
             color={color}
             expand={true}
             position={'center'} />
-      </View>)
+      </View>
+    )
   }
 }
 
