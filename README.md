@@ -94,7 +94,6 @@ export default class Exemples extends Component {
           }}
           color={color}
           expand={true}
-          keepVisible
           position={'center'} />
       </View>
     )
