@@ -70,22 +70,24 @@ export default class Exemples extends Component {
       <View style={[styles.container, {
           backgroundColor: oldColor
         }]}>
-      <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress} >
-        <View>
-          <Text style={styles.position}>
-            Press to start circle transition animation
-          </Text>
-        </View>
-      </TouchableWithoutFeedback>
-      <CircleTransition
-        ref={(circle) => { this.circleTransition = circle }}
-        color={color}
-        expand
-        position={'center'}
-      />
-    </View>
-  )
-}
+        <TouchableWithoutFeedback 
+          style={styles.touchable} 
+          onPress={this.handlePress}>
+          <View>
+            <Text style={styles.position}>
+              Press to start circle transition animation
+            </Text>
+          </View>
+        </TouchableWithoutFeedback>
+        <CircleTransition
+          ref={(circle) => { this.circleTransition = circle }}
+          color={color}
+          expand
+          position={'center'}
+        />
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
