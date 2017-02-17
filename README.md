@@ -2,6 +2,7 @@
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwyl/esta/issues)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![npm version](https://badge.fury.io/js/react-native-expanding-circle-transition.svg)](https://badge.fury.io/js/react-native-expanding-circle-transition)
+[![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/react-native-expanding-circle-transition)
 
 ## Preview
 
