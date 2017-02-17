@@ -23,6 +23,7 @@
 | position | enum   | position of the circle :  ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'center', 'left', 'right', 'top', 'bottom', 'custom']  | 'topLeft'                        |
 | customLeftMargin | number   |  custom position's left margin from the center of the circle positioned at topLeft |  0                       |
 | customTopMargin | number   |  custom position's top margin from the center of the circle positioned at topLeft |  0                       |
+| easing | object   | react native's Easing for the animation  |      Easing.linear                   |
 
 ## How to use
 
