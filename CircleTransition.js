@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import { Modal, Easing, Dimensions, Animated } from 'react-native'
-const {width, height} = Dimensions.get('window')
+import { Easing, Dimensions, Animated } from 'react-native'
+const { width, height } = Dimensions.get('window')
 const EXPAND = 1
 const SHRINK = 0
 
@@ -8,7 +8,7 @@ class CircleTransition extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      modalVisible: false,
+      visible: false,
       scale: new Animated.Value(SHRINK)
     }
   }
@@ -36,12 +36,12 @@ class CircleTransition extends Component {
   setModalVisible (visible, expand, callback) {
     let fromValue = expand ? SHRINK : EXPAND
     this.setState({
-      modalVisible: visible,
+      visible: visible,
       scale: new Animated.Value(fromValue)
     }, callback)
   }
 
-  getMarginHorizontal (position) {
+  getLeftPosition (position) {
     const {size, customLeftMargin} = this.props
     const halfSize = size / 2
     const halfWidth = width / 2
@@ -66,7 +66,7 @@ class CircleTransition extends Component {
     }
   }
 
-  getMarginVertical (position) {
+  getTopPosition (position) {
     const {size, customTopMargin} = this.props
     const halfSize = size / 2
     const halfHeight = height / 2
@@ -92,19 +92,18 @@ class CircleTransition extends Component {
   }
 
   render () {
-    const {scale, modalVisible} = this.state
-    const {size, color, position} = this.props
-    let marginVertical = this.getMarginVertical(position)
-    let marginHorizontal = this.getMarginHorizontal(position)
-    return (
-      <Modal
-        animationType={'none'}
-        transparent
-        visible={modalVisible}>
+    const {scale, visible} = this.state
+    const {size, color, position, zIndex} = this.props
+    let topPosition = this.getTopPosition(position)
+    let leftPosition = this.getLeftPosition(position)
+    if (visible) {
+      return (
         <Animated.View style={{
+          position: 'absolute',
           backgroundColor: color,
-          marginVertical: marginVertical,
-          marginHorizontal: marginHorizontal,
+          zIndex: zIndex,
+          top: topPosition,
+          left: leftPosition,
           width: size,
           height: size,
           borderRadius: size / 2,
@@ -112,8 +111,10 @@ class CircleTransition extends Component {
             scale: scale
           }]
         }} />
-      </Modal>
-    )
+      )
+    } else {
+      return null
+    }
   }
 }
 
@@ -136,7 +137,8 @@ CircleTransition.propTypes = {
   customLeftMargin: PropTypes.number,
   customTopMargin: PropTypes.number,
   expand: PropTypes.bool,
-  easing: PropTypes.func
+  easing: PropTypes.func,
+  zIndex: PropTypes.number
 }
 
 CircleTransition.defaultProps = {
@@ -147,6 +149,7 @@ CircleTransition.defaultProps = {
   expand: true,
   customLeftMargin: 0,
   customTopMargin: 0,
-  easing: Easing.linear
+  easing: Easing.linear,
+  zIndex: 100
 }
 export default CircleTransition

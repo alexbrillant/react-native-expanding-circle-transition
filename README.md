@@ -24,6 +24,7 @@
 | customLeftMargin | number   |  custom position's left margin from the center of the circle positioned at topLeft |  0                       |
 | customTopMargin | number   |  custom position's top margin from the center of the circle positioned at topLeft |  0                       |
 | easing | func   | react native's Easing for the animation  |      Easing.linear                   |
+| zIndex | number   | zIndex of the animation |      100                  |
 
 ## How to use
 
