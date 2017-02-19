@@ -150,6 +150,6 @@ CircleTransition.defaultProps = {
   customLeftMargin: 0,
   customTopMargin: 0,
   easing: Easing.linear,
-  zIndex: 100
+  zIndex: 999
 }
 export default CircleTransition

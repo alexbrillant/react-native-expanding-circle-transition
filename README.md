@@ -24,14 +24,16 @@
 | customLeftMargin | number   |  custom position's left margin from the center of the circle positioned at topLeft |  0                       |
 | customTopMargin | number   |  custom position's top margin from the center of the circle positioned at topLeft |  0                       |
 | easing | func   | react native's Easing for the animation  |      Easing.linear                   |
-| zIndex | number   | zIndex of the animation |      100                  |
+| zIndex | number   | zIndex of the animation |      999                  |
 
 ## How to use
 
 To trigger the animation, you need to use a ref to call the start function of this component. 
 Pass a callback to the start function to change the scene before the circle is hidden(check out usage exemple handlePress function). 
 
-## Usage exemple
+## Usage exemples
+
+### Basic exemple
 ```javascript
 import React, {
   Component
@@ -116,3 +118,109 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 })
+```
+### Using zIndex prop to put components above the animation(since 1.1.7)
+```javascript
+import React, {
+  Component
+} from 'react'
+
+import {
+  AppRegistry,
+  Easing,
+  StyleSheet,
+  Text,
+  Image,
+  View,
+  TouchableWithoutFeedback
+} from 'react-native'
+
+import CircleTransition from 'react-native-expanding-circle-transition'
+
+export default class Exemples extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      oldColor: '#E3E4E5',
+      color: 'orange'
+    }
+    this.handlePress = this.handlePress.bind(this)
+  }
+
+  handlePress () {
+    this.circleTransition.start(() => {
+      this.setState({
+        oldColor: this.state.color
+      })
+    })
+  }
+
+  render () {
+    let {
+      color,
+      oldColor
+    } = this.state
+
+    return (
+      <View style={[
+        {backgroundColor: oldColor},
+        styles.container
+      ]}>
+      <View style={styles.above}>
+        <Text style={styles.text}>I am above the animation</Text>
+      </View>
+      <TouchableWithoutFeedback style={styles.touchable} onPress={this.handlePress}>
+          <View style={styles.below}>
+            <Text style={styles.text}>press here</Text>
+          </View>
+      </TouchableWithoutFeedback>
+      <CircleTransition
+        ref={(circle) => { this.circleTransition = circle }}
+        color={color}
+        expand
+        easing={Easing.linear}
+        zIndex={100}
+        position={'center'}
+      />
+    </View>
+  )
+}
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    zIndex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF'
+  },
+  below: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  above: {
+    flex: 1,
+    zIndex: 101,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#769FBD',
+    padding: 10,
+    margin: 10
+  },
+  text: {
+    zIndex: 1,
+    fontSize: 25,
+    fontWeight: '400',
+    color: '#253039'
+  },
+  touchable: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
+```
