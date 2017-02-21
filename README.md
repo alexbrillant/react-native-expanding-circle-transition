@@ -19,7 +19,7 @@
 | color    | string | color of the circle view                                                                                | 'orange'                         |
 | size     | number | size of the circle view when fully expanded. | the height of the screen times 3 |
 | scaleShrink | number | scale factor to shrink the circle | 0 |
-| scaleShrink | number | scale factor to expand the circle | 4 |
+| scaleExpand | number | scale factor to expand the circle | 4 |
 | transitionBuffer | number | buffer between the transition and the animation. the expanding circle transition must happen before the circle is hidden | 5 |
 | duration | number | duration of the animation                                                                               | 800                              |
 | expand   | bool   | expand if true, reduce false                                                                            | true                             |
