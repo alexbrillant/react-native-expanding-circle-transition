@@ -47,7 +47,7 @@ import {
   TouchableWithoutFeedback
 } from 'react-native'
 
-import CircleTransition from './CircleTransition'
+import CircleTransition from 'react-native-expanding-circle-transition'
 const ANIMATION_DURATION = 1200
 const INITIAL_VIEW_BACKGROUND_COLOR = '#E3E4E5'
 const CIRCLE_COLOR1 = '#29C5DB'
