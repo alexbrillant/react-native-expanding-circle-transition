@@ -1,44 +1,73 @@
 import React, { Component, PropTypes } from 'react'
-import { Easing, Dimensions, Animated } from 'react-native'
+import { Easing, Modal, Dimensions, Animated } from 'react-native'
 const { width, height } = Dimensions.get('window')
-const EXPAND = 1
-const SHRINK = 0
+const reactMixin = require('react-mixin')
+import TimerMixin from 'react-timer-mixin'
 
 class CircleTransition extends Component {
   constructor (props) {
     super(props)
+    const {
+      scaleShrink,
+      scaleExpand,
+      expand
+    } = this.props
+    const initialScale = expand ? scaleShrink : scaleExpand
     this.state = {
       visible: false,
-      scale: new Animated.Value(SHRINK)
+      scale: new Animated.Value(initialScale)
     }
+    this.setVisible = this.setVisible.bind(this)
+    this.setScale = this.setScale.bind(this)
+    this.resetCircle = this.resetCircle.bind(this)
   }
 
   start (callback) {
     const {expand} = this.props
-    this.setModalVisible(true, expand, () => {
-      this.animate(expand, callback)
-    })
+    this.setVisible(true, () => this.animate(expand, callback))
   }
 
   animate (expand, callback) {
-    let toValue = expand ? EXPAND : SHRINK
-    const { easing } = this.props
+    const {
+      scaleShrink,
+      scaleExpand,
+      easing
+    } = this.props
+    let toValue = expand ? scaleExpand : scaleShrink
     Animated.timing(this.state.scale, {
       toValue: toValue,
       duration: this.props.duration,
       easing: easing
     }).start(() => {
       callback()
-      this.setModalVisible(false, expand)
+      this.hideCircle()
     })
   }
 
-  setModalVisible (visible, expand, callback) {
-    let fromValue = expand ? SHRINK : EXPAND
+  hideCircle () {
+    const { transitionBuffer } = this.props
+    // the circle disappears only when the transition is completed...
+    this.setTimeout(() => {
+      this.resetCircle()
+    }, transitionBuffer)
+  }
+
+  resetCircle () {
+    this.setVisible(false, () => {
+      this.setScale(0)
+    })
+  }
+
+  setVisible (visible, callback) {
     this.setState({
-      visible: visible,
-      scale: new Animated.Value(fromValue)
+      visible: visible
     }, callback)
+  }
+
+  setScale (scale) {
+    this.setState({
+      scale: new Animated.Value(scale)
+    })
   }
 
   getLeftPosition (position) {
@@ -46,21 +75,17 @@ class CircleTransition extends Component {
     const halfSize = size / 2
     const halfWidth = width / 2
     let marginHorizontalTopLeft = -halfSize
-
     switch (position) {
       case 'center':
       case 'top':
       case 'bottom':
         return marginHorizontalTopLeft + halfWidth
-
       case 'topRight':
       case 'bottomRight':
       case 'right':
         return marginHorizontalTopLeft + width
-
       case 'custom':
         return marginHorizontalTopLeft + customLeftMargin
-
       default:
         return marginHorizontalTopLeft
     }
@@ -71,21 +96,17 @@ class CircleTransition extends Component {
     const halfSize = size / 2
     const halfHeight = height / 2
     let marginVerticalTopLeft = -halfSize
-
     switch (position) {
       case 'center':
       case 'left':
       case 'right':
         return marginVerticalTopLeft + halfHeight
-
       case 'bottomLeft':
       case 'bottomRight':
       case 'bottom':
         return marginVerticalTopLeft + height
-
       case 'custom':
         return marginVerticalTopLeft + customTopMargin
-
       default:
         return marginVerticalTopLeft
     }
@@ -93,15 +114,18 @@ class CircleTransition extends Component {
 
   render () {
     const {scale, visible} = this.state
-    const {size, color, position, zIndex} = this.props
+    const { size, color, position } = this.props
     let topPosition = this.getTopPosition(position)
     let leftPosition = this.getLeftPosition(position)
-    if (visible) {
-      return (
+    return (
+      <Modal
+        animationType='none'
+        transparent
+        visible={visible}
+        onRequestClose={() => {}}>
         <Animated.View style={{
           position: 'absolute',
           backgroundColor: color,
-          zIndex: zIndex,
           top: topPosition,
           left: leftPosition,
           width: size,
@@ -111,17 +135,20 @@ class CircleTransition extends Component {
             scale: scale
           }]
         }} />
-      )
-    } else {
-      return null
-    }
+      </Modal>
+    )
   }
 }
+
+reactMixin(CircleTransition.prototype, TimerMixin)
 
 CircleTransition.propTypes = {
   color: PropTypes.string,
   size: PropTypes.number,
+  scaleShrink: PropTypes.number,
+  scaleExpand: PropTypes.number,
   duration: PropTypes.number,
+  transitionBuffer: PropTypes.number,
   position: PropTypes.oneOf([
     'topLeft',
     'topRight',
@@ -138,18 +165,21 @@ CircleTransition.propTypes = {
   customTopMargin: PropTypes.number,
   expand: PropTypes.bool,
   easing: PropTypes.func,
-  zIndex: PropTypes.number
+  sizeBeforeExpanding: PropTypes.number
 }
 
 CircleTransition.defaultProps = {
   color: 'orange',
-  size: height * 3,
+  size: Math.min(width, height) - 1,
+  scaleShrink: 0,
+  scaleExpand: 4,
   duration: 800,
+  transitionBuffer: 5,
   position: 'topLeft',
   expand: true,
   customLeftMargin: 0,
   customTopMargin: 0,
-  easing: Easing.linear,
-  zIndex: 999
+  easing: Easing.linear
 }
+
 export default CircleTransition

@@ -1,9 +1,9 @@
 {
     "name": "react-native-expanding-circle-transition",
-    "version": "1.1.8",
+    "version": "1.1.9",
     "private": false,
     "main": "index.js",
-    "description": "Expanding circle transition using react-native Animated API",
+    "description": "Expanding circle transition using react-native Modal and Animated API",
     "keywords": [
         "react-native",
         "react-component",
@@ -53,5 +53,8 @@
         "ghooks": {
             "pre-commit": "if [ -d 'ignite-base' ]; then cd ignite-base; fi; npm run lint"
         }
+    },
+    "dependencies": {
+        "react-mixin": "^2.0.2"
     }
 }
