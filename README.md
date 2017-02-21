@@ -21,12 +21,12 @@
 | scaleShrink | number | Scale factor to shrink the circle | 0 |
 | scaleExpand | number | Scale factor to expand the circle | 4 |
 | transitionBuffer | number | Buffer between the transition and the animation. the expanding circle transition must happen before the circle is hidden | 5 |
-| duration | number | Duration of the animation                                                                               | 800                              |
-| expand   | bool   | Expand if true, reduce false                                                                            | true                             |
-| position | enum   | Position of the circle :  ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'center', 'left', 'right', 'top', 'bottom', 'custom']  | 'topLeft'                        |
+| duration | number | Animation duration                                                                              | 800                              |
+| expand   | bool   | Expand the circle if true, reduce the circle if false                                                                            | true                             |
+| position | enum   | Circle position :  ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'center', 'left', 'right', 'top', 'bottom', 'custom']  | 'topLeft'                        |
 | customLeftMargin | number   |  Custom position's left margin from the center of the circle positioned at topLeft |  0                       |
 | customTopMargin | number   |  Custom position's top margin from the center of the circle positioned at topLeft |  0                       |
-| easing | func   | React native's Easing for the animation  |      Easing.linear                   |
+| easing | func   | React Native Animation Easing  |      Easing.linear                   |
 
 ## How to use
 
