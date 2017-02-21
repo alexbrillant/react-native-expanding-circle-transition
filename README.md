@@ -181,4 +181,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Exemples```
+export default Exemples
