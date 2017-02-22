@@ -17,7 +17,7 @@
 | Props    | type   | description                                                                                             | required or default                          |
 |----------|--------|---------------------------------------------------------------------------------------------------------|----------------------------------|
 | color    | string | Color of the circle view                                                                                | 'orange'                         |
-| size     | number | Size of the circle view. it has to fit in the window | the height of the screen times 3 |
+| size     | number | Size of the circle view. It has to fit in the window | Math.min(width, height) - 1  |
 | scaleShrink | number | Scale factor to shrink the circle | 0 |
 | scaleExpand | number | Scale factor to expand the circle | 4 |
 | transitionBuffer | number | Buffer between the transition and the animation. The transition must happen before the circle is hidden | 5 |
