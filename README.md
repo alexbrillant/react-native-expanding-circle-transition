@@ -133,8 +133,7 @@ class Exemples extends Component {
         <TouchableWithoutFeedback
           style={styles.touchable}
           onPress={this.handlePress}>
-          <View
-            ref={(touchableView) => { this.touchableView = touchableView }} style={styles.touchableView} >
+          <View style={styles.touchableView}>
             <Text style={styles.text}>{viewBackgroundColor.toString()}</Text>
           </View>
         </TouchableWithoutFeedback>
