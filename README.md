@@ -20,7 +20,7 @@
 | size     | number | Size of the circle view. it has to fit in the window | the height of the screen times 3 |
 | scaleShrink | number | Scale factor to shrink the circle | 0 |
 | scaleExpand | number | Scale factor to expand the circle | 4 |
-| transitionBuffer | number | Buffer between the transition and the animation. the expanding circle transition must happen before the circle is hidden | 5 |
+| transitionBuffer | number | Buffer between the transition and the animation. The transition must happen before the circle is hidden | 5 |
 | duration | number | Animation duration                                                                              | 800                              |
 | expand   | bool   | Expand the circle if true, reduce the circle if false                                                                            | true                             |
 | position | enum   | Circle position :  ['topLeft', 'topRight', 'bottomLeft', 'bottomRight', 'center', 'left', 'right', 'top', 'bottom', 'custom']  | 'topLeft'                        |
